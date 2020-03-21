@@ -1,3 +1,10 @@
-from django.shortcuts import render
+"""
+high level support for doing this and that.
+"""
+from rest_framework import viewsets
+from .serializers import GeneroSerializer, Genero
 
-# Create your views here.
+
+class GeneroViewset(viewsets.ReadOnlyModelViewSet):
+    queryset = Genero.objects.all()
+    serializer_class = GeneroSerializer
