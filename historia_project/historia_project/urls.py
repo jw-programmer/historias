@@ -18,9 +18,12 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from genero.views import GeneroViewset
+from categoria.views import TipoCategoriaViewset, CategoriaViewset
 
 router = DefaultRouter()
-router.register(r'genero',GeneroViewset, "genero")
+router.register(r'generos',GeneroViewset, "genero")
+router.register(r'tipos_categoria', TipoCategoriaViewset, "tipos_categoria")
+router.register(r'categorias',CategoriaViewset,"categorias")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
