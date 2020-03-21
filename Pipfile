@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 autopep8 = "*"
+pylint-django = "*"
 
 [packages]
 django = "==2.2.10"
@@ -16,7 +17,6 @@ psycopg2-binary = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 django-filters = "*"
-django-filter = "*"
 
 [requires]
 python_version = "3.7"
