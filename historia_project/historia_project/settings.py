@@ -149,6 +149,9 @@ REST_FRAMEWORK = {
 
 }
 
+#aut model
+AUTH_USER_MODEL = 'autor.Autor'
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('JWT_ACESS_TIME', cast=int, default=24)),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=config('JWT_REFRESH_TIME', cast=int, default=7)),
