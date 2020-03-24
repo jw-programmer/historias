@@ -15,17 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+from rest_framework_simplejwt import views as jwt_views
+
 from rest_framework.routers import DefaultRouter
 
 from genero.views import GeneroViewset
 from categoria.views import TipoCategoriaViewset, CategoriaViewset
+from autor.views import AutorViewset
 
 router = DefaultRouter()
 router.register(r'generos',GeneroViewset, "genero")
 router.register(r'tipos_categoria', TipoCategoriaViewset, "tipos_categoria")
 router.register(r'categorias',CategoriaViewset,"categorias")
+router.register(r'autores', AutorViewset, "autores")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+     path('api/login/', jwt_views.TokenObtainPairView.as_view(),
+         name='token_obtain_pair'),
+    path('api/token/refresh_token/', jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
 ]
